@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al'Khinkin Salon - Sentuhan Elegan untuk Keluarga</title>
+    
+    <!-- Mengambil Font dari Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS Styles -->
+    <style>
+        :root {
+            --primary-color: #D4AF37; /* Warna Emas */
+            --secondary-color: #F9F7F2; /* Warna Krem Terang */
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --accent: #B08D55;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--secondary-color);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- Navigation --- */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-nav {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-cta {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            background-color: var(--accent);
+        }
+
+        /* --- Sections General --- */
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        /* --- About Us --- */
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* --- Services --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .price-list {
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 0.5rem;
+        }
+
+        .price-item span:last-child {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        /* --- Gallery --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item img:hover {
+            opacity: 0.8;
+        }
+
+        /* --- Testimonials --- */
+        .testimonials {
+            background-color: var(--white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .stars {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .client-name {
+            margin-top: 1rem;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        /* --- Contact & FAQ --- */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .contact-info, .faq-section {
+            flex: 1;
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* --- Floating WA Button --- */
+        .float-wa {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .float-wa:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- Responsive Mobile --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background: var(--white);
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .about-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Al'Khinkin Salon</div>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#gallery">Galeri</a></li>
+                <li><a href="#contact">Kontak</a></li>
+                <li><a href="https://wa.me/6281234567890" class="btn-nav">Booking</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Sentuhan Elegan, Kilau Alami untuk Keluarga Anda</h1>
+            <p>Selamat datang di Al'Khinkin Salon. Perawatan rambut dan kecantikan premium dengan suasana hangat, nyaman, dan ramah bagi seluruh anggota keluarga.</p>
+            <a href="https://wa.me/6281234567890?text=Halo%20Al'Khinkin%20Salon,%20saya%20ingin%20booking" class="btn-cta">Booking Sekarang</a>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about">
+        <div class="section-title">
+            <h2>Tentang Kami</h2>
+            <p>Rumah Kedua untuk Kecantikan Anda</p>
+        </div>
+        <div class="about-container">
+            <div class="about-image">
+                <!-- Placeholder Image -->
+                <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Suasana Salon">
+            </div>
+            <div class="about-text">
+                <h3>Dedikasi untuk Kenyamanan Anda</h3>
+                <p>Di <strong>Al'Khinkin Salon</strong>, kami percaya bahwa kecantikan sejati berawal dari rasa nyaman dan percaya diri. Didirikan dengan dedikasi tinggi, kami berkomitmen untuk memberikan standar perawatan terbaik tanpa mengorbankan keramahan.</p>
+                <br>
+                <p>Kami memahami bahwa setiap pelanggan memiliki kebutuhan unik. Apakah Anda seorang ibu muda, pria profesional, atau anak-anak—kami siap melayani dengan senyuman tulus dan produk berkualitas tinggi.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services & Pricing -->
+    <section id="services" style="background-color: #fff;">
+        <div class="section-title">
+            <h2>Layanan & Harga</h2>
+            <p>Perawatan Khusus untuk Setiap Gaya Hidup</p>
+        </div>
+        
+        <div class="services-grid">
+            <!-- Card 1 -->
+            <div class="service-card">
+                <div class="service-icon">💇‍♀️</div>
+                <h3>Perawatan Rambut</h3>
+                <div class="price-list">
+                    <div class="price-item">
+                        <span>Potong & Styling Wanita</span>
+                        <span>Rp 50.000</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Potong Pria</span>
+                        <span>Rp 35.000</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Hair Coloring</span>
+                        <span>Mulai Rp 250rb</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Smoothing / Rebonding</span>
+                        <span>Mulai Rp 450rb</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="service-card">
+                <div class="service-icon">✨</div>
+                <h3>Kulit & Wajah</h3>
+                <div class="price-list">
+                    <div class="price-item">
+                        <span>Facial Glow Basic</span>
+                        <span>Rp 150.000</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Masker Organik</span>
+                        <span>Rp 75.000</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Creambath Relaksasi</span>
+                        <span>Rp 60.000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="service-card">
+                <div class="service-icon">👨‍👩‍👧‍👦</div>
+                <h3>Keluarga & Khusus</h3>
+                <div class="price-list">
+                    <div class="price-item">
+                        <span>Kids Haircut (Sabar & Ceria)</span>
+                        <span>Rp 40.000</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Hijab-Friendly Service</span>
+                        <span>Fast & Practical</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Grooming Pria Eksekutif</span>
+                        <span>Rp 55.000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery">
+        <div class="section-title">
+            <h2>Galeri Kami</h2>
+            <p>Momen Transformasi & Suasana Nyaman</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Hasil Potongan"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Suasana Salon"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Perawatan Rambut"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Produk Salon"></div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="section-title">
+            <h2>Kata Mereka</h2>
+            <p>Apa kata pelanggan setia Al'Khinkin</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Saya sangat suka dengan pelayanan di sini! Stafnya sangat ramah dan tidak memaksa upselling. Hasil potongannya juga sangat rapi."</p>
+                <div class="client-name">— Siti A.</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Akhirnya menemukan salon yang paham kebutuhan wanita berhijab. Layanannya cepat tapi tetap teliti. Sangat direkomendasikan!"</p>
+                <div class="client-name">— Rina M.</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Bawa anak saya potong rambut di sini dan dia sama sekali tidak rewel. Tukang cutinya sabar banget. Pasti akan balik lagi!"</p>
+                <div class="client-name">— Budi S.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location -->
+    <section id="contact">
+        <div class="section-title">
+            <h2>Hubungi Kami</h2>
+            <p>Siap Tampil Lebih Percaya Diri?</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Informasi Kontak</h3>
+                <br>
+                <div class="info-item">
+                    <strong>📍 Alamat:</strong>
+                    <span>Jl. Contoh Indah No. 123, [Nama Kota]<br><a href="#" style="color:var(--accent)">Lihat di Google Maps</a></span>
+                </div>
+                <div class="info-item">
+                    <strong>📞 WhatsApp:</strong>
+                    <span>+62 812-XXXX-XXXX</span>
+                </div>
+                <div class="info-item">
+                    <strong>🕒 Jam Buka:</strong>
+                    <span>Senin - Sabtu: 10.00 - 20.00 WIB<br>Minggu: 10.00 - 18.00 WIB</span>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h3>FAQ (Pertanyaan Umum)</h3>
+                <br>
+                <div class="faq-item">
+                    <div class="faq-question">Apakah harus booking dulu?</div>
+                    <div class="faq-answer">Sangat disarankan untuk menghindari antrean. Silakan booking minimal H-1 via WhatsApp.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Apakah ada area parkir?</div>
+                    <div class="faq-answer">Ya, kami menyediakan area parkir yang luas dan aman untuk mobil maupun motor.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Apakah produknya halal?</div>
+                    <div class="faq-answer">Kami memprioritaskan produk yang aman, berkualitas, dan sebagian besar bersertifikat halal.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Al'Khinkin Salon. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: #aaa;">Designed with ❤️ for Family Beauty</p>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+        <!-- Floating WhatsApp Button (Menggunakan Link Gambar Logo Resmi) -->
+    <a href="https://wa.me/6281234567890?text=Halo%20Al'Khinkin%20Salon,%20saya%20ingin%20tanya%20jadwal" class="float-wa" target="_blank" title="Chat via WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" style="width: 35px; height: 35px;">
+    </a>
